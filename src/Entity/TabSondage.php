@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\TabSondageRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -31,6 +33,16 @@ class TabSondage
      * @ORM\Column(type="string", length=255)
      */
     private $type;
+
+    /**
+     * @ORM\OneToMany(targetEntity=TabReponse::class, mappedBy="sondage")
+     */
+    private $tabReponses;
+
+    public function __construct()
+    {
+        $this->tabReponses = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -69,6 +81,37 @@ class TabSondage
     public function setType(string $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TabReponse[]
+     */
+    public function getTabReponses(): Collection
+    {
+        return $this->tabReponses;
+    }
+
+    public function addTabReponse(TabReponse $tabReponse): self
+    {
+        if (!$this->tabReponses->contains($tabReponse)) {
+            $this->tabReponses[] = $tabReponse;
+            $tabReponse->setSondage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTabReponse(TabReponse $tabReponse): self
+    {
+        if ($this->tabReponses->contains($tabReponse)) {
+            $this->tabReponses->removeElement($tabReponse);
+            // set the owning side to null (unless already changed)
+            if ($tabReponse->getSondage() === $this) {
+                $tabReponse->setSondage(null);
+            }
+        }
 
         return $this;
     }
