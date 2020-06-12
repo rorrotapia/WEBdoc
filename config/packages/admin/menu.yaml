@@ -1,0 +1,8 @@
+easy_admin:
+  design:
+    menu:
+      - label: 'WebDocumentaire'
+        icon: 'newspaper-o'
+        children:
+          - {entity: 'TabSondage', icon: 'question', label: 'Questions'}
+          - {entity: 'TabReponse', icon: 'exchange', label: 'Reponses'}
