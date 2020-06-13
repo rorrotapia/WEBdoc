@@ -6,3 +6,4 @@ easy_admin:
         children:
           - {entity: 'TabSondage', icon: 'question', label: 'Questions'}
           - {entity: 'TabReponse', icon: 'exchange', label: 'Reponses'}
+          - {entity: 'TabResultats', icon: 'poll', label: 'Resultats'}
