@@ -20,7 +20,7 @@ class TabReponse
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=TabSondage::class, inversedBy="tabReponses")
+     * @ORM\ManyToOne(targetEntity=TabSondage::class, inversedBy="tabReponses",cascade={"remove"})
      */
     private $sondage;
 
@@ -29,10 +29,6 @@ class TabReponse
      */
     private $reponse;
 
-    /**
-     * @ORM\OneToMany(targetEntity=TabResultats::class, mappedBy="reponse")
-     */
-    private $tabResultats;
 
     public function __construct()
     {
@@ -72,34 +68,4 @@ class TabReponse
         return $this->reponse;
     }
 
-    /**
-     * @return Collection|TabResultats[]
-     */
-    public function getTabResultats(): Collection
-    {
-        return $this->tabResultats;
-    }
-
-    public function addTabResultat(TabResultats $tabResultat): self
-    {
-        if (!$this->tabResultats->contains($tabResultat)) {
-            $this->tabResultats[] = $tabResultat;
-            $tabResultat->setReponse($this);
-        }
-
-        return $this;
-    }
-
-    public function removeTabResultat(TabResultats $tabResultat): self
-    {
-        if ($this->tabResultats->contains($tabResultat)) {
-            $this->tabResultats->removeElement($tabResultat);
-            // set the owning side to null (unless already changed)
-            if ($tabResultat->getReponse() === $this) {
-                $tabResultat->setReponse(null);
-            }
-        }
-
-        return $this;
-    }
 }

@@ -35,19 +35,13 @@ class TabSondage
     private $type;
 
     /**
-     * @ORM\OneToMany(targetEntity=TabReponse::class, mappedBy="sondage")
+     * @ORM\OneToMany(targetEntity=TabReponse::class, mappedBy="sondage",cascade={"remove"})
      */
     private $tabReponses;
-
-    /**
-     * @ORM\OneToMany(targetEntity=TabResultats::class, mappedBy="sondage")
-     */
-    private $tabResultats;
 
     public function __construct()
     {
         $this->tabReponses = new ArrayCollection();
-        $this->tabResultats = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -126,34 +120,4 @@ class TabSondage
         return $this->question;
     }
 
-    /**
-     * @return Collection|TabResultats[]
-     */
-    public function getTabResultats(): Collection
-    {
-        return $this->tabResultats;
-    }
-
-    public function addTabResultat(TabResultats $tabResultat): self
-    {
-        if (!$this->tabResultats->contains($tabResultat)) {
-            $this->tabResultats[] = $tabResultat;
-            $tabResultat->setSondage($this);
-        }
-
-        return $this;
-    }
-
-    public function removeTabResultat(TabResultats $tabResultat): self
-    {
-        if ($this->tabResultats->contains($tabResultat)) {
-            $this->tabResultats->removeElement($tabResultat);
-            // set the owning side to null (unless already changed)
-            if ($tabResultat->getSondage() === $this) {
-                $tabResultat->setSondage(null);
-            }
-        }
-
-        return $this;
-    }
 }
