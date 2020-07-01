@@ -18,12 +18,12 @@ class TabResultats
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=TabSondage::class, inversedBy="tabResultats")
+     * @ORM\ManyToOne(targetEntity=TabSondage::class, inversedBy="tabResultats",cascade={"persist"})
      */
     private $sondage;
 
     /**
-     * @ORM\ManyToOne(targetEntity=TabReponse::class, inversedBy="tabResultats")
+     * @ORM\ManyToOne(targetEntity=TabReponse::class, inversedBy="tabResultats",cascade={"persist"})
      */
     private $reponse;
 

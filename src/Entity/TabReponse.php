@@ -20,7 +20,7 @@ class TabReponse
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=TabSondage::class, inversedBy="tabReponses",cascade={"remove"})
+     * @ORM\ManyToOne(targetEntity=TabSondage::class, inversedBy="tabReponses",cascade={"persist"})
      */
     private $sondage;
 
