@@ -23,7 +23,7 @@ class TabSondage
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"read:sondage","read:resultats"})
+     * @Groups({"read:sondage","read:resultats","write:resultats"})
      */
     private $id;
 
