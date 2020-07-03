@@ -32,7 +32,7 @@ class TabReponse
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"read:sondage"})
+     * @Groups({"read:sondage","read:resultats"})
      */
     private $reponse;
 
