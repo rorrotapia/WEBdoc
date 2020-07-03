@@ -25,13 +25,13 @@ class TabResultats
 
     /**
      * @ORM\ManyToOne(targetEntity=TabSondage::class, inversedBy="tabResultats",cascade={"persist"})
-     * @Groups({"read:resultats"})
+     * @Groups({"read:resultats","write:resultats"})
      */
     private $sondage;
 
     /**
      * @ORM\ManyToOne(targetEntity=TabReponse::class, inversedBy="tabResultats",cascade={"persist"})
-     * @Groups({"read:resultats"})
+     * @Groups({"read:resultats","write:resultats"})
      */
     private $reponse;
 
