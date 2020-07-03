@@ -10,8 +10,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ORM\Entity(repositoryClass=TabResultatsRepository::class)
  * @ApiResource(
- *     collectionOperations={"GET","POST"},
- *     itemOperations={"GET"}),
+ *     collectionOperations={"GET"},
  *     normalizationContext={"groups"={"read:resultats"}}
  * )
  */
