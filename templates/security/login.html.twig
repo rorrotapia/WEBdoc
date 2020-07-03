@@ -1,11 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+    <style>
+        body {display: flex;margin: 0;width: 100%;height: 100vh;font-family: sans-serif;}
+        form {display: flex; color: #4c5367; flex-direction: column; margin: auto; box-shadow: 0 7px 14px 0 rgba(59,64,94,0.1),0 3px 6px 0 rgba(0,0,0,0.07); padding: 15px 20px; border-radius: 5px; min-height: 35vh; min-width: 30%}
+        button {margin-top: auto; padding: 6px 10px; color: white; background-color: #6174d1; border: none; border-radius: 5px;height: 35px}
+        label {margin: 10px 0;color: #4c5367;}
+        input {border: 0;padding: 3px 7px 5px;box-shadow: 0 0 0 1px rgba(43,45,80,.16), 0 0 0 1px rgba(6,122,184,0), 0 0 0 2px rgba(6,122,184,0), 0 1px 1px rgba(0,0,0,.08);height: 30px;white-space: nowrap;word-break: keep-all;}
+    </style>
     <form class="form-signin" action="{{ path('app_login') }}" method="POST">
-        <h2 class="form-signin-heading">Please sign in</h2>
+        <h2 class="form-signin-heading">Connexion</h2>
 
-        <label for="_username" class="sr-only">Username</label>
+        <label for="_username" class="sr-only">Compte</label>
         <input type="text"
                id="_username"
                name="_username"
@@ -14,7 +20,7 @@
                required
                autofocus>
 
-        <label for="_password" class="sr-only">Password</label>
+        <label for="_password" class="sr-only">Mot de Passe</label>
         <input type="password"
                id="_password"
                name="_password"
@@ -22,7 +28,7 @@
                placeholder="Password"
                required>
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Se connecter</button>
     </form>
 
 {% endblock %}
