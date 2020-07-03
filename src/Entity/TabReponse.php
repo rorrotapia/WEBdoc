@@ -7,6 +7,7 @@ use App\Repository\TabReponseRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=TabReponseRepository::class)
@@ -20,6 +21,7 @@ class TabReponse
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"read:sondage","read:resultats"})
      */
     private $id;
 
@@ -30,6 +32,7 @@ class TabReponse
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"read:sondage"})
      */
     private $reponse;
 
