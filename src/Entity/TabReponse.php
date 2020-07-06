@@ -21,7 +21,7 @@ class TabReponse
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"read:sondage","read:resultats","write:resultats"})
+     * @Groups({"read:sondage","read:resultats"})
      */
     private $id;
 

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiProperty;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\TabResultatsRepository;
 use Doctrine\ORM\Mapping as ORM;
@@ -12,8 +13,10 @@ use Symfony\Component\Serializer\Annotation\Groups;
  * @ApiResource(
  *     collectionOperations={"GET","POST"},
  *     itemOperations={"GET"},
- *     normalizationContext={"groups"={"read:resultats"}},
- *     denormalizationContext={"groups"={"write:resultats"}}
+ *     attributes={
+ *         "normalization_context"={"groups"={"read:resultats"}},
+ *         "denormalization_context"={"groups"={"write"}}
+ *     },
  * )
  */
 class TabResultats
@@ -28,13 +31,13 @@ class TabResultats
 
     /**
      * @ORM\ManyToOne(targetEntity=TabSondage::class, inversedBy="tabResultats",cascade={"persist"})
-     * @Groups({"read:resultats"})
+     * @Groups({"read:resultats","write"})
      */
     private $sondage;
 
     /**
      * @ORM\ManyToOne(targetEntity=TabReponse::class, inversedBy="tabResultats",cascade={"persist"})
-     * @Groups({"read:resultats"})
+     * @Groups({"read:resultats","write"})
      */
     private $reponse;
 
