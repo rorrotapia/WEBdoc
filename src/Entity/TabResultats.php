@@ -10,7 +10,10 @@ use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ORM\Entity(repositoryClass=TabResultatsRepository::class)
  * @ApiResource(
- *     normalizationContext={"groups"={"read:resultats","write:resultats"}}
+ *     collectionOperations={"GET","POST"},
+ *     itemOperations={"GET"},
+ *     normalizationContext={"groups"={"read:resultats"}},
+ *     denormalizationContext={"groups"={"write:resultats"}}
  * )
  */
 class TabResultats
@@ -25,13 +28,13 @@ class TabResultats
 
     /**
      * @ORM\ManyToOne(targetEntity=TabSondage::class, inversedBy="tabResultats",cascade={"persist"})
-     * @Groups({"read:resultats","write:resultats"})
+     * @Groups({"read:resultats"})
      */
     private $sondage;
 
     /**
      * @ORM\ManyToOne(targetEntity=TabReponse::class, inversedBy="tabResultats",cascade={"persist"})
-     * @Groups({"read:resultats","write:resultats"})
+     * @Groups({"read:resultats"})
      */
     private $reponse;
 
