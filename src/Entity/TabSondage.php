@@ -2,13 +2,20 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\TabSondageRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=TabSondageRepository::class)
+ * @ApiResource(
+ *     collectionOperations={"GET"},
+ *     itemOperations={"GET"},
+ *     normalizationContext={"groups"={"read:sondage"}}
+ * )
  */
 class TabSondage
 {
@@ -16,26 +23,31 @@ class TabSondage
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"read:sondage","read:resultats"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"read:sondage"})
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"read:sondage","read:resultats"})
      */
     private $question;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"read:sondage"})
      */
     private $type;
 
     /**
      * @ORM\OneToMany(targetEntity=TabReponse::class, mappedBy="sondage",cascade={"remove"})
+     * @Groups({"read:sondage"})
      */
     private $tabReponses;
 
