@@ -23,4 +23,4 @@ Easy Admin a pour nous été une solution logique pour avoir un back office simp
 
 La documentation de notre code est dû à API Platform avec nos routes qui seront disponible.
 
-Pour finir, je ne dirais pas que c'est le sujet abordé qui à définit nos choix Back End mais c'est plus le Front et ses technologies qui ont influencé notre back.
+Pour finir, je ne dirais pas que c'est le sujet abordé qui a définit nos choix Back End mais c'est plus le Front et ses technologies qui ont influencé notre back.
