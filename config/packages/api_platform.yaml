@@ -1,5 +1,11 @@
 api_platform:
     show_webby: false
+    title: WebDocumentaire "Leviathan"
+    description: |
+        Systeme de Sondage.
+        Cette Api est géré par [API Platform](https://api-platform.com).
+        Repo Git: [Webdoc](https://github.com/rorrotapia/WEBdoc).
+        Site Web: [webdoc-leviathan.herokuapp.com](https://webdoc-leviathan.herokuapp.com/).
     mapping:
         paths: ['%kernel.project_dir%/src/Entity']
     patch_formats:
