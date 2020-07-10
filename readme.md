@@ -10,7 +10,7 @@ Nous avons décidé de partir sur un serveur Apache et une base de donnée MySQL
 
 ## Hébergement 
 
-+ http://human-society-webdoc.herokuapp.com/?fbclid=IwAR3v3BdbKhFgVbxM74MyvqZfvMAe2ceCqFVqLml1gZiOAnGRJCYCqRTA1-c
++ https://webdoc-leviathan.herokuapp.com/
 
 ## Architecture du projet
 
